@@ -1,0 +1,73 @@
+<!-- concerts.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Concerts</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <!-- same header as index.html -->
+  </header>
+  <main>
+    <section class="concerts">
+      <h1>Concerts</h1>
+      <div class="row">
+        <div class="col-md-4">
+          <img src="concert-image-1.jpg" alt="Concert Image 1">
+          <h2>Concert 1</h2>
+          <p>Concert information</p>
+          <button class="btn btn-primary" data-concert-id="1">Buy Tickets</button>
+        </div>
+        <div class="col-md-4">
+          <img src="concert-image-2.jpg" alt="Concert Image 2">
+          <h2>Concert 2</h2>
+          <p>Concert information</p>
+          <button class="btn btn-primary" data-concert-id="2">Buy Tickets</button>
+        </div>
+        <div class="col-md-4">
+          <img src="concert-image-3.jpg" alt="Concert Image 3">
+          <h2>Concert 3</h2>
+          <p>Concert information</p>
+          <button class="btn btn-primary" data-concert-id="3">Buy Tickets</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const buyTicketButtons = document.querySelectorAll('.btn-primary');
+
+      buyTicketButtons.forEach((button) => {
+        button.addEventListener('click', (e) => {
+          const concertId = button.getAttribute('data-concert-id');
+          buyTicket(concertId);
+        });
+      });
+
+      function buyTicket(concertId) {
+        // Make a POST request to the API to purchase tickets
+        fetch(`http://localhost:3000/concerts/${concertId}/tickets`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ ticket_quantity: 1 }) // Simulate purchasing 1 ticket
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            if (data.id) {
+              alert(`Ticket purchased successfully for Concert ${concertId}!`);
+            } else {
+              alert(`Error purchasing ticket: ${data.error}`);
+            }
+          })
+          .catch((error) => {
+            console.error(error);
+            alert('Error purchasing ticket. Please try again later.');
+          });
+      }
+    </script>
+  </body>
+</html>

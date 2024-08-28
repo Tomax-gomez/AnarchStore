@@ -1,0 +1,137 @@
+/* styles.css */
+
+/* Global Styles */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
+  }
+  
+  /* Header Styles */
+  
+  header {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+  }
+  
+  header .navbar-brand {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  header .navbar-nav {
+    margin-top: 1em;
+  }
+  
+  header .navbar-nav .nav-link {
+    color: #fff;
+    transition: color 0.2s ease;
+  }
+  
+  header .navbar-nav .nav-link:hover {
+    color: #ccc;
+  }
+  
+  /* Hero Styles */
+  
+  .hero {
+    background-color: #333;
+    color: #fff;
+    padding: 2em;
+    text-align: center;
+  }
+  
+  .hero img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+  }
+  
+  .hero h1 {
+    font-size: 2.5em;
+    font-weight: bold;
+  }
+  
+  /* Product Grid Styles */
+  
+  .product-grid {
+    padding: 2em;
+  }
+  
+  .product-grid .row {
+    margin-bottom: 1em;
+  }
+  
+  .product-grid .col-md-4 {
+    margin-bottom: 1em;
+  }
+  
+  .product-grid img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1em;
+  }
+  
+  .product-grid h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  /* Footer Styles */
+  
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+    clear: both;
+  }
+  
+  footer p {
+    margin-bottom: 1em;
+  }
+  
+  /* Responsive Styles */
+  
+  @media (max-width: 768px) {
+    header .navbar-nav {
+      margin-top: 0;
+    }
+    header .navbar-nav .nav-link {
+      display: block;
+      padding: 0.5em;
+    }
+    .hero img {
+      width: 50%;
+      height: auto;
+      margin: 0 auto;
+    }
+    .product-grid .col-md-4 {
+      margin-bottom: 2em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    header .navbar-brand {
+      font-size: 1em;
+    }
+    header .navbar-nav .nav-link {
+      font-size: 0.8em;
+    }
+    .hero h1 {
+      font-size: 1.5em;
+    }
+    .product-grid .col-md-4 {
+      margin-bottom: 3em;
+    }
+  }
